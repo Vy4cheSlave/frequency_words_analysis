@@ -1,0 +1,17 @@
+plugins {
+	id 'org.jetbrains.kotlin.jvm' version '2.0.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+jar {
+    manifest {
+        attributes["Main-Class"] = "github.com.Vy4cheSlave.frequency_words_analysis.FrequencyWordsAnalysisApplicationKt"
+    }
+
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+}
